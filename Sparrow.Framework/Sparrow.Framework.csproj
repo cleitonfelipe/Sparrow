@@ -4,4 +4,31 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Driver\chromedriver.exe" />
+    <None Remove="Driver\IEDriverServer.exe" />
+    <None Remove="Driver\MicrosoftWebDriver.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Driver\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Driver\IEDriverServer.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Driver\MicrosoftWebDriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="2.33.0" />
+    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.19.1" />
+    <PackageReference Include="Selenium.Support" Version="3.8.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.8.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="2.34.0" />
+    <PackageReference Include="Selenium.WebDriver.IEDriver" Version="3.8.0" />
+  </ItemGroup>
+
 </Project>
