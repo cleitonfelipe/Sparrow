@@ -9,10 +9,11 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Edge;
 using System.Linq;
+using System.Collections;
 
 namespace Sparrow.Framework
 {
-    public class NavigationBrowser : INavigationBrowser
+    public class NavigationBrowser : INavigationBrowser, IEnumerable
     {
         #region Propriedades
 
@@ -24,6 +25,10 @@ namespace Sparrow.Framework
         private bool acceptNextAlert;
         private string driverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\Driver\\";
         private IWebElement text;
+
+        public NavigationBrowser()
+        {
+        }
 
         #endregion
         public bool AcceptNextAlert
@@ -125,10 +130,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsByName(string name)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByName(string name)
         {
             Elements = Driver.FindElements(By.Name(name));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -140,10 +145,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsById(string id)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsById(string id)
         {
             Elements = Driver.FindElements(By.Id(id));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -166,10 +171,10 @@ namespace Sparrow.Framework
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        public INavigationBrowser GetSeveralElementsByTagName(string tag)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByTagName(string tag)
         {
             Elements = Driver.FindElements(By.TagName(tag));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -181,10 +186,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsByClassName(string className)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByClassName(string className)
         {
             Elements = Driver.FindElements(By.ClassName(className));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -197,10 +202,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsByCssSelector(string cssSelector)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByCssSelector(string cssSelector)
         {
             Elements = Driver.FindElements(By.CssSelector(cssSelector));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -212,10 +217,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsByPartialLinkText(string partialLinkText)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByPartialLinkText(string partialLinkText)
         {
             Elements = Driver.FindElements(By.PartialLinkText(partialLinkText));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -227,10 +232,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsByXPath(string xpath)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByXPath(string xpath)
         {
             Elements = Driver.FindElements(By.XPath(xpath));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -242,10 +247,10 @@ namespace Sparrow.Framework
             return this;
         }
 
-        public INavigationBrowser GetSeveralElementsByLinkText(string link)
+        public IReadOnlyCollection<IWebElement> GetSeveralElementsByLinkText(string link)
         {
             Elements = Driver.FindElements(By.LinkText(link));
-            return this;
+            return Elements;
         }
 
         #endregion
@@ -354,6 +359,17 @@ namespace Sparrow.Framework
         {
             var title = Driver.Title;
             return title;
+        }
+
+        public int GetAllWindow()
+        {
+            var windows = Driver.WindowHandles;
+            return windows.Count;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return ((IEnumerable)Elements).GetEnumerator();
         }
     }
 }

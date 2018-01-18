@@ -1,4 +1,7 @@
-﻿namespace Sparrow.Framework.Interfaces
+﻿using OpenQA.Selenium;
+using System.Collections.Generic;
+
+namespace Sparrow.Framework.Interfaces
 {
     public interface INavigationBrowser
     {
@@ -18,35 +21,35 @@
 
 
         INavigationBrowser GetElementByClassName(string className);
-        INavigationBrowser GetSeveralElementsByClassName(string className);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByClassName(string className);
 
 
         INavigationBrowser GetElementByPartialLinkText(string partiallinktext);
-        INavigationBrowser GetSeveralElementsByPartialLinkText(string partiallinktext);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByPartialLinkText(string partiallinktext);
 
 
         INavigationBrowser GetElementById(string id);
-        INavigationBrowser GetSeveralElementsById(string id);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsById(string id);
 
 
         INavigationBrowser GetElementByCssSelector(string css);
-        INavigationBrowser GetSeveralElementsByCssSelector(string cssselector);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByCssSelector(string cssselector);
 
 
         INavigationBrowser GetElementByLinkText(string link);
-        INavigationBrowser GetSeveralElementsByLinkText(string linktext);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByLinkText(string linktext);
 
 
         INavigationBrowser GetElementByXPath(string xpath);
-        INavigationBrowser GetSeveralElementsByXPath(string xpath);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByXPath(string xpath);
 
 
         INavigationBrowser GetElementByName(string name);
-        INavigationBrowser GetSeveralElementsByName(string name);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByName(string name);
 
 
         INavigationBrowser GetElementByTagName(string tag);
-        INavigationBrowser GetSeveralElementsByTagName(string tag);
+        IReadOnlyCollection<IWebElement> GetSeveralElementsByTagName(string tag);
 
         bool GetPageSource(string source);
 
@@ -73,5 +76,7 @@
         INavigationBrowser GetFirstWindowHandle();
 
         string GetPageTitle();
+
+        int GetAllWindow();
     }
 }
