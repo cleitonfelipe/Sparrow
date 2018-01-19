@@ -1,11 +1,8 @@
 # Sparrow Framework
 Sparrow é um framework de automação de interfaces que agrega fácil utilização e abstração de complexidade dos frameworks que utilizamos para esta tarefa, seja ela web, mobile ou desktop.
-Sparrow é criado na união de alguns dos principais framework do mercado que utilizamos e uma escrita mais simplificada e clara.
+Sparrow é criado na união de alguns dos principais frameworks do mercado que utilizamos e uma escrita mais simplificada e clara.
 
-## Installing
-Via NuGet Package Manager Console: Install-Package Sparrow.Framework
-
-Via Manager NuGet Packages e buscar por Sparrow.Framework
+## Installing(coming soon)
 
 ## Getting Started
 Você pode utilizar um console aplication ou um projeto de teste para seguir estes exemplo.
