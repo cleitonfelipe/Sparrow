@@ -16,7 +16,7 @@ namespace Sparrow.Test
             IReadOnlyCollection<IWebElement> elements;
             _navigation.SetupTest("EDGE", "http://www.google.com.br").ExecutionTest();
             elements = _navigation.GetSeveralElementsByTagName("div");
-
+            
             foreach (var item in elements)
             {
                 var a = item.FindElements(By.TagName("input"));

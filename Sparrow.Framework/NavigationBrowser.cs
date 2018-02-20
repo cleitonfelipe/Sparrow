@@ -10,6 +10,8 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Edge;
 using System.Linq;
 using System.Collections;
+using System;
+using OpenQA.Selenium.Support.UI;
 
 namespace Sparrow.Framework
 {
@@ -126,7 +128,7 @@ namespace Sparrow.Framework
         #region Name
         public INavigationBrowser GetElementByName(string name)
         {
-            Element = Driver.FindElement(By.Name(name));
+            Element = WebDriverWait(By.Name(name));
             return this;
         }
 
@@ -141,7 +143,7 @@ namespace Sparrow.Framework
         #region Id
         public INavigationBrowser GetElementById(string id)
         {
-            Element = Driver.FindElement(By.Id(id));
+            Element = WebDriverWait(By.Id(id));
             return this;
         }
 
@@ -162,7 +164,7 @@ namespace Sparrow.Framework
         /// <returns></returns>
         public INavigationBrowser GetElementByTagName(string tag)
         {
-            Element = Driver.FindElement(By.TagName(tag));
+            Element = WebDriverWait(By.TagName(tag));
             return this;
         }
 
@@ -182,7 +184,7 @@ namespace Sparrow.Framework
         #region Classname
         public INavigationBrowser GetElementByClassName(string className)
         {
-            Element = Driver.FindElement(By.ClassName(className));
+            Element = WebDriverWait(By.ClassName(className));
             return this;
         }
 
@@ -198,7 +200,7 @@ namespace Sparrow.Framework
 
         public INavigationBrowser GetElementByCssSelector(string css)
         {
-            Element = Driver.FindElement(By.CssSelector(css));
+            Element = WebDriverWait(By.CssSelector(css));
             return this;
         }
 
@@ -213,7 +215,7 @@ namespace Sparrow.Framework
         #region PartialLinkText
         public INavigationBrowser GetElementByPartialLinkText(string partialLinkText)
         {
-            Elements = Driver.FindElements(By.LinkText(partialLinkText));
+            Element = WebDriverWait(By.PartialLinkText(partialLinkText));
             return this;
         }
 
@@ -228,7 +230,7 @@ namespace Sparrow.Framework
         #region xpath
         public INavigationBrowser GetElementByXPath(string xpath)
         {
-            Element = Driver.FindElement(By.XPath(xpath));
+            Element = WebDriverWait(By.XPath(xpath));
             return this;
         }
 
@@ -243,7 +245,7 @@ namespace Sparrow.Framework
         #region LinkText
         public INavigationBrowser GetElementByLinkText(string link)
         {
-            Element = Driver.FindElement(By.LinkText(link));
+            Element = WebDriverWait(By.LinkText(link));
             return this;
         }
 
@@ -371,5 +373,13 @@ namespace Sparrow.Framework
         {
             return ((IEnumerable)Elements).GetEnumerator();
         }
+
+        public IWebElement WebDriverWait(By by)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            IWebElement element = wait.Until(drv => drv.FindElement(by));
+            return element;
+        }
+
     }
 }

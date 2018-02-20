@@ -3,12 +3,12 @@ using System;
 
 namespace Sparrow.Framework
 {
-    internal class WebDriverWait
+    internal class WebDriverWait_old
     {
         private IWebDriver driver;
         private TimeSpan timeSpan;
 
-        public WebDriverWait(IWebDriver driver, TimeSpan timeSpan)
+        public WebDriverWait_old(IWebDriver driver, TimeSpan timeSpan)
         {
             this.driver = driver;
             this.timeSpan = timeSpan;

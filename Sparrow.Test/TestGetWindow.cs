@@ -14,10 +14,12 @@ namespace Sparrow.Test
         {
             INavigationBrowser _navigation = new NavigationBrowser();
 
-            _navigation.SetupTest("EDGE", "http://localhost:8080")
-                .ExecutionTest()
-                .GetElementByCssSelector("body")
-                .SendKeys(Keys.Control + "t");
+            _navigation.SetupTest("IE", "http://www.google.com.br")
+                .ExecutionTest();
+
+                _navigation.GetElementById("gsr");
+
+            _navigation.SendKeys(Keys.Control + "t");
 
             var win = _navigation.GetAllWindow();
 
