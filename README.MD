@@ -5,7 +5,7 @@ Sparrow é criado na união de alguns dos principais frameworks do mercado que u
 ## Installing(coming soon)
 
 ## Getting Started
-Você pode utilizar um console aplication ou um projeto de teste para seguir estes exemplo.
+Você pode utilizar um console application ou um projeto de teste para seguir estes exemplo.
 
 Neste exemplo estaremos utilizando a automação para web passando o browser Microsoft EDGE e o site da Google. 
 Após a instalação você só precisa fazer os seguintes passos:
