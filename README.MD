@@ -1,5 +1,5 @@
 # Sparrow Framework
-Sparrow é um framework de automação de interfaces que agrega fácil utilização e abstração de complexidade dos frameworks que utilizamos para esta tarefa, seja ela web, mobile ou desktop.
+>Sparrow é um framework de automação de interfaces que agrega fácil utilização e abstração de complexidade dos frameworks que utilizamos para esta tarefa, seja ela web, mobile ou desktop.
 Sparrow é criado na união de alguns dos principais frameworks do mercado que utilizamos e uma escrita mais simplificada e clara.
 
 ## Installing(coming soon)
